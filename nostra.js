@@ -29,7 +29,7 @@ function displayProducts(items) {
 }
 
 function filterCategory(cat) {
-  displayProducts(cat === "all" ? products : products.filter(p => p.category === cat));
+  displayProducts(cat === "home" ? products : products.filter(p => p.category === cat));
 }
 
 function searchProducts() {
