@@ -6,6 +6,8 @@
   <title>Nostra - Diwali Offers</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="nostra.js"></script>
+  
+</a>
 </head>
 
 <body class="bg-gray-100">
@@ -38,6 +40,28 @@
       >
         🛒 Cart
       </button>
+      <!-- Collection Dropdown -->
+    <div class="relative">
+      <button id="collectionBtn" class="category-btn bg-gray-200 px-3 py-2 rounded-lg text-sm sm:text-base flex items-center w-full sm:w-auto">
+        Collection
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+
+      <div id="collectionDropdown" class="absolute mt-1 w-40 bg-white rounded-md shadow-lg hidden z-10">
+        <button onclick="filterCategory('men')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">Men’s Fashion</button>
+        <button onclick="filterCategory('women')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">Women’s Fashion</button>
+      </div>
+    </div>
+
+    <button onclick="window.location.href='contact.html'" 
+      class="bg-yellow-400 px-3 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-yellow-500 w-full sm:w-auto">
+      Contact Us
+    </button>
+
+
+
     </div>
   </header>
 
@@ -51,8 +75,15 @@
     <button onclick="filterCategory('all')" class="category-btn bg-gray-200 px-3 py-2 rounded-lg text-sm sm:text-base">All</button>
     <button onclick="filterCategory('mobiles')" class="category-btn bg-gray-200 px-3 py-2 rounded-lg text-sm sm:text-base">Mobiles</button>
     <button onclick="filterCategory('laptops')" class="category-btn bg-gray-200 px-3 py-2 rounded-lg text-sm sm:text-base">Laptops</button>
-    <button onclick="filterCategory('men')" class="category-btn bg-gray-200 px-3 py-2 rounded-lg text-sm sm:text-base">Men’s Fashion</button>
-    <button onclick="filterCategory('women')" class="category-btn bg-gray-200 px-3 py-2 rounded-lg text-sm sm:text-base">Women’s Fashion</button>
+    
+  
+
+      
+  </button>
+  
+  </div>
+</button>
+  
   </div>
 
   <!-- Product Grid -->
@@ -88,6 +119,40 @@
     toggle.addEventListener("click", () => {
       menu.classList.toggle("hidden");
     });
+
+    // Collection dropdown toggle
+    const collectionBtn = document.getElementById("collectionBtn");
+    const collectionDropdown = document.getElementById("collectionDropdown");
+
+    collectionBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      collectionDropdown.classList.toggle("hidden");
+    });
+
+    window.addEventListener("click", () => {
+      collectionDropdown.classList.add("hidden");
+    });
+
+    // Example functions
+    function filterCategory(category) {
+      alert("Filter products: " + category);
+    }
+
+    function searchProducts() {
+      alert("Search products: " + document.getElementById("searchBox").value);
+    }
+
+    function openCart() {
+      document.getElementById("cartModal").classList.remove("hidden");
+    }
+
+    function closeCart() {
+      document.getElementById("cartModal").classList.add("hidden");
+    }
+
+    function checkout() {
+      alert("Checkout clicked!");
+    }
   </script>
 </body>
 </html>
