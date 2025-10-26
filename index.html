@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nostra - Diwali Offers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="nostra.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white p-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <img src="img/nostralogo.png" alt="Nostra Logo" class="h-10 w-10 rounded-full">
+      <h1 class="text-2xl font-bold">NOSTRA</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <input id="searchBox" type="text" placeholder="Search products..."
+        class="p-2 rounded-lg text-black w-60 focus:outline-none">
+      <button onclick="searchProducts()" class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold">
+        🔍 Search
+      </button>
+      <button onclick="openCart()" class="bg-orange-500 px-4 py-2 rounded-lg font-semibold">🛒 Cart</button>
+    </div>
+  </header>
+
+  <!-- Offer Banner -->
+  <section class="bg-yellow-300 text-center py-4 font-bold text-lg">
+    🎉 Diwali Dhamaka Offer – Up to 60% OFF on All Categories! 🪔
+  </section>
+
+  <!-- Category Filter -->
+  <div class="flex justify-center my-4 space-x-4">
+    <button onclick="filterCategory('all')" class="category-btn bg-gray-200 px-4 py-2 rounded-lg">All</button>
+    <button onclick="filterCategory('mobiles')" class="category-btn bg-gray-200 px-4 py-2 rounded-lg">Mobiles</button>
+    <button onclick="filterCategory('laptops')" class="category-btn bg-gray-200 px-4 py-2 rounded-lg">Laptops</button>
+    <button onclick="filterCategory('men')" class="category-btn bg-gray-200 px-4 py-2 rounded-lg">Men’s Fashion</button>
+    <button onclick="filterCategory('women')" class="category-btn bg-gray-200 px-4 py-2 rounded-lg">Women’s Fashion</button>
+  </div>
+
+  <!-- Product Grid -->
+  <section id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6"></section>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center">
+    <div class="bg-white p-6 rounded-xl w-96">
+      <h2 class="text-xl font-bold mb-4">🛍 Your Cart</h2>
+      <div id="cartItems" class="space-y-2"></div>
+      <hr class="my-3">
+      <div class="flex justify-between">
+        <span class="font-bold">Total:</span>
+        <span id="cartTotal" class="font-bold text-green-600"></span>
+      </div>
+      <div class="mt-4 flex justify-between">
+        <button onclick="closeCart()" class="bg-gray-300 px-4 py-2 rounded-lg">Close</button>
+        <button onclick="checkout()" class="bg-green-500 text-white px-4 py-2 rounded-lg">Checkout</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
